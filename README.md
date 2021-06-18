@@ -28,7 +28,7 @@ ensure pp-teleport
 
 > Note, you will be able to add / remove teleport in the `config.lua` file
 
-> If you want the job to be on `root`, simply put `all` in place of the job name
+> If you want the job to be on `root`, simply put `all` in place of the job name in `config.lua`
 
 ## Credits
 
