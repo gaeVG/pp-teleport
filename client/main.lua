@@ -52,7 +52,7 @@ Citizen.CreateThread(function()
                 local dist = GetDistanceBetweenCoords(coords, v.entrance["x"], v.entrance["y"], v.entrance["z"])
                 
                 if dist < 15.0 then
-                    DrawMarker(2, v.entrance["x"], v.entrance["y"], v.entrance["z"], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.25, 0.15, 119, 72, 126, 155, false, 1, false, false, false, false, false)
+                    DrawMarker(2, v.entrance["x"], v.entrance["y"], v.entrance["z"], 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.25, 0.15, 119, 72, 126, 155, false, 1, false, false, false, false, false)
                     if dist < 0.5 then
                         DrawText3D(v.entrance["x"], v.entrance["y"], v.entrance["z"] + 0.15, "[~g~E~s~] - " .. v.label)
                         if IsControlJustPressed(0, 38) then
