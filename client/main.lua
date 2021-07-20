@@ -2,18 +2,25 @@ ESX = nil
 
 local PlayerData = {}
 
--- base
-Citizen.CreateThread(function()
-    while ESX == nil do
-        Citizen.Wait(500)
-        TriggerEvent("esx:getSharedObject", function (obj) ESX = obj end)
+AddEventHandler("onClientResourceStart", function(resourceName)
+    if (GetCurrentResourceName() ~= resourceName) then
+        return
     end
 
-    while ESX.GetPlayerData().job == nil do
+    while (function()
+        if ESX == nil then
+            return true
+        end
+
+        if ESX.GetPlayerData().job == nil then
+            return true
+        end
+
+        PlayerData = ESX.GetPlayerData()
+    end)() do
+        ESX = exports["es_extended"]:getSharedObject()
         Citizen.Wait(500)
     end
-
-    PlayerData = ESX.GetPlayerData()
 end)
 
 -- job
