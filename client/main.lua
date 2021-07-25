@@ -48,7 +48,7 @@ end
 -- marker
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(5)
+        Citizen.Wait(0)
 
         local playerPed = PlayerPedId()
         local coords = GetEntityCoords(playerPed)
@@ -80,10 +80,10 @@ Citizen.CreateThread(function()
 end)
 
 -- teleport
-function TeleportPlayer(coords, heading)
+function TeleportPlayer(data)
     local playerPed = PlayerPedId()
 
-    SetEntityCoords(playerPed, coords.x, coords.y, coords.z, false, false, false, true)
-    SetEntityHeading(playerPed, heading)
-    TriggerServerEvent("pp-teleport:updateCoords", coords)
+    SetEntityCoords(playerPed, data.coords.x, data.coords.y, data.coords.z, false, false, false, true)
+    SetEntityHeading(playerPed, data.heading)
+    TriggerServerEvent("pp-teleport:updateCoords", data.coords)
 end
